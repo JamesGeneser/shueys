@@ -1,33 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import React from 'react'
+import Home from './Routes/Pages/Home';
+import Menu from './Routes/Pages/Menu';
+import Navigation from './Components/navbar';
+import Apply from './Routes/Pages/Apply';
+import {Routes, Route, Outlet, Link} from 'react-router-dom'
+import Contact from './Routes/Pages/Contact';
+import About from './Routes/Pages/About';
+import Footer from './Components/footer';
+import SlideMenu from './Components/slide-menu';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Navigation />
+    {/* <SlideMenu/> */}
+    
+
+    <Routes>
+
+      <Route path="Shueys-Bar/" element={<Home/>} />
+      <Route path="Shueys-Bar/menu" element={<Menu/>} />
+      <Route path="Shueys-Bar/contact" element={<Contact/>} />
+      <Route path="Shueys-Bar/about" element={<About/>} />
+      <Route path="Shueys-Bar/apply" element={<Apply/>} />
+
+    </Routes>
+    <Footer/>
+
     </>
   )
 }
